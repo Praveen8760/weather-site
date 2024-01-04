@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    background: radial-gradient(122.94% 80.75% at 50% 0%, #5451AC 0%, rgba(178, 164, 252, 0.00) 100%), #F59660;
+}
+input{
+    border: 2px solid transparent;
+    border-radius: 999px;
+    border-image: linear-gradient(45deg,rgba(0,0,0,0.19),rgba(0,0,0,0));
+    border-image-slice: 1;
+}
+input:focus{
+    border: 2px solid transparent;
+    border-radius: 999px;
+    border-image: linear-gradient(90deg,rgba(0,0,0,0.19),rgba(0,0,0,0));
+    border-image-slice: 1;
+}
+
+/* span{
+    margin-top: 6px;
+    width: 90px;
+    height: 4px;
+    border-radius: 999px;
+    background:linear-gradient(rgba(139,121,248,0.19),rgba(193,122,248,100%));
+} */
+

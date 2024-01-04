@@ -1,0 +1,99 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% compress css %}
+        <link href="{% static 'src/output.css' %}" rel="stylesheet">
+    {% endcompress %}
+    <!-- <link rel="stylesheet" href="/static/src/output.css"> -->
+    <link rel="stylesheet" href="{% static 'src/custom.css' %}">
+
+
+
+</head>
+<body class="overflow-hidden">
+    <main class="h-100 flex relative flex-col lg:flex-row">
+        <section class="flex flex-col h-4/6 lg:p-5 lg:w-3/6 lg:mb-8 lg:h-full">
+            <div class="mt-12 flex flex-col-reverse items-center gap-1 text-white font-head lg:mt-1 lg:flex-col lg:items-start">
+
+                <p class="font-normal text-3xl lg:text-5xl lg:font-medium date">Monday 30,March</p>
+                {% for data in values %}
+                    <p class="location font-medium capitalize text-4xl lg:text-4xl lg:font-normal" data-value="data.location">{{data.location}}</p>
+                {% endfor %}
+            </div>
+            <div class="m-4 h-5/6 mt-10 flex relative flex-col items-center lg:mb-5 lg:flex-col lg:my-auto lg:h-full lg:px-20">
+                <img src="/static/img/sun.svg" class="weather_img z-10 p-5 lg:w-temp lg:h-temp lg:p-0 lg:self-start">
+                <span class="temp absolute -top-6 z-0 font-head font-bold lg:relative lg:self-start lg:mx-3">
+
+                </span>
+            </div>
+        </section>
+
+
+        <section class="m-2 mb-4 flex flex-shrink flex-col mt-auto lg:3/6 lg:mx-auto lg:mt-auto lg:mb-6">
+            <div class="flex justify-center mx-auto">
+                <!-- <div class="flex flex-row items-center right-10 absolute top-2 gap-2 hidden">
+                    <p class="text-white font-head text-2xl font-semibold hidden md:visible">Hello,Praveen</p>
+                    <div class="bg-red-300 rounded-round p-1 lg:p-2">
+                        <img src="/static/img/sun.svg" class="w-6 h-6 lg:w-8 lg:h-8">
+                    </div>
+                </div> -->
+            </div>
+            <div class="flex flex-col bg-white rounded-card-sm items-center p-4 gap-5 w-auto">
+                <h1 class="mt-2 text-sub self-center font-head text-2xl font-semibold lg:text-3xl">Details</h1>
+                <div class="flex flex-row gap-10 lg:gap-10">
+                    <div class="bg-red-300 rounded-round p-4 lg:p-6">
+                        <img src="/static/img/wind_icon.svg" class="w-10 h-10 lg:w-14 lg:h-14">
+                    </div>
+                    <div class="flex flex-row items-center gap-4 px-4 border border-1 rounded-full lg:px-10 lg:gap-7">
+                        <h1 class="wind_speed text-3xl font-head font-semibold text-sub lg:text-5xl"></h1>
+                        <div class="flex flex-col">
+                            <p class="text-sub -mb-1 lg:text-base">Wind Speed</p>
+                            <p class="wind_dir text-assets -mt-1 lg:text-base">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="flex flex-row gap-10 lg:gap-10">
+                        <div class="bg-red-300 rounded-round p-4 lg:p-6">
+                            <img src="/static/img/D_Rain.svg" class="w-10 h-10 lg:w-14 lg:h-14">
+                        </div>
+                        <div class="flex flex-row items-center gap-4 px-4 border border-1 rounded-full lg:px-10 lg:gap-7">
+                            <h1 class="rain_val text-3xl font-head font-semibold text-sub lg:text-5xl">30%</h1>
+                            <div class="flex flex-col">
+                                <p class="text-sub -mb-1 lg:text-base">Precipitation</p>
+                                <p class="text-assets -mt-1 lg:text-base">mm</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row gap-10 lg:gap-10">
+                        <div class="bg-red-300 rounded-round p-4 lg:p-6">
+                            <img src="/static/img/H_icon.svg" class="w-10 h-10 lg:w-14 lg:h-14">
+                        </div>
+                        <div class="flex flex-row items-center gap-4 px-4 border border-1 rounded-full w-max lg:px-10 lg:gap-7">
+                            <h1 class="humidity_val text-3xl font-head font-semibold text-sub lg:text-5xl"></h1>
+                            <div class="flex flex-col">
+                                <p class="text-sub -mb-1 lg:text-base">Humidity</p>
+                                <p class="text-assets -mt-1 lg:text-base">Kg/m<sup>3</sup></p>
+                            </div>
+                        </div>
+                    </div>              
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="/static/src/main.js"></script>
+    <!-- <script src="{% static 'src/main.js' %}"></script> -->
+</body>
+</html>

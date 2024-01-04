@@ -1,0 +1,62 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% compress css %}
+        <link href="{% static 'src/output.css' %}" rel="stylesheet">
+    {% endcompress %}
+
+    <!-- <link href="/static/src/output.css" rel="stylesheet"> -->
+
+</head>
+<body class="overflow-hidden">
+
+    <main class=" h-100 flex flex-col justify-evenly lg:flex-row lg:justify-stretch lg:items-center">
+        <section class="h-2/6 flex justify-center flex-shrink mt-auto lg:w-3/6 lg:h-max lg:my-auto">
+            <img src="/static/img/13549580_5292753.svg" class="">
+        </section>
+
+        <section class="m-2 mb-4 lg:w-2/6 lg:mx-auto">
+            <div class="bg-white p-4 pb-5 rounded-card-sm">
+                <h1 class="text-center font-semibold text-sm font-head lg:text-lg mb-2 text-sub">Register</h1>
+
+                {% for message in messages %}
+                <div class="text-error font-head font-normal text-center text-label-text-sm lg:text-label-text">
+                    {{message}}
+                    
+                </div>
+                {% endfor %}
+
+                <form method="post" action="register" class="flex flex-col gap-1 flex-grow h-max lg:justify-center">
+                    {% csrf_token %}
+
+                    <label for="name" class="font-head font-normal text-sub text-label-text-sm lg:text-label-text">Full Name</label>
+                    <input type="text" name="first_name" class="p-inp" placeholder="Your First Name">
+
+                    <label for="Email" class="font-sub font-normal text-sub text-label-text-sm lg:text-label-text">Email</label>
+                    <input type="email" name="email" class="p-inp" placeholder="Your Email">
+
+                    <label for="password" class="font-sub font-normal text-sub text-label-text-sm lg:text-label-text">Password</label>
+                    <input type="password" name="password" class="p-inp" placeholder="Your Password">
+
+                    <label for="location" class="font-sub font-normal text-sub text-label-text-sm lg:text-label-text">Loction</label>
+                    <input type="text" name="location" class="p-inp" placeholder="Your Location">
+
+                    <button type="submit" class="mt-2.5 rounded-full bg-sub text-label-text text-white w-auto mx-auto px-8 py-2 text-center transition duration-300 ease-in-out hover:bg-assets hover:text-sub lg:text-label-text">Register</button>
+                    <div class="flex flex-col items-center text-label-text-sm gap-0.5">
+                        <span class=""></span>
+                        <p class="text-sub lg:text-label-text">Already have account ?</p>
+                        <a href="login" class="text-assets transition-colors duration-75 ease-linear lg:text-label-text hover:text-sub">Login</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

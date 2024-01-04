@@ -1,0 +1,20 @@
+.temp{
+    background: radial-gradient(96.71% 96.71% at 50% 21.83%, #FFF 0%, rgba(255, 255, 255, 0.13) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-family: IBM Plex Sans Hebrew;
+    font-size: 150px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120px;
+}
+
+
+@media screen and (min-width:700px){
+    .temp{
+        font-size:240px;
+        line-height: 200px;
+    }
+}
